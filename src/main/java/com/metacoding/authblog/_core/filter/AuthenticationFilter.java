@@ -16,18 +16,9 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
 
-        // localhost:8080/board/hello
-        String path = req.getRequestURI();
-
-        boolean isAuth = path.startsWith("/board");
-
-        if (isAuth) {
-            User sessionUser = (User) session.getAttribute("sessionUser");
-            if(sessionUser == null) {
-                resp.sendRedirect("/login-form");
-            } else {
-                filterChain.doFilter(request, response);
-            }
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if(sessionUser == null) {
+            resp.sendRedirect("/login-form");
         } else {
             filterChain.doFilter(request, response);
         }

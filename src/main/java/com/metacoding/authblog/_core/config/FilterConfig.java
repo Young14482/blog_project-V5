@@ -5,7 +5,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class FilterConfig {
 
     @Bean // 리턴값이 IOC에 등록됨
@@ -17,4 +17,5 @@ public class FilterConfig {
         rg.setOrder(1);
         return rg;
     }
+
 }

@@ -23,4 +23,9 @@ public class UserRepository {
             throw new RuntimeException("아이디 혹은 패스워드가 일치하지 않음");
         }
     }
+
+    public User save(User user) {
+        em.persist(user);
+        return user;
+    }
 }

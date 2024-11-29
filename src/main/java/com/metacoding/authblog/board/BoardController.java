@@ -14,14 +14,13 @@ public class BoardController {
     private final HttpSession session;
 
     @GetMapping("/")
-    public String index(@AuthenticationPrincipal User user) {
-        //@AuthenticationPrincipal >> 세션의 userDetails를 가져옴 >> 지금 userDetails를 User클래스로 만들어놔서 바로 클래스로 가져와짐
-        System.out.println(user.getUsername() + " 로그인됨");
+    public String index() {
         return "index";
     }
 
     @GetMapping("/board/save-form")
-    public String saveForm() {
+    public String saveForm(@AuthenticationPrincipal User user) {
+        System.out.println(user.getUsername() + " 로그인됨");
         return "board/save-form";
     }
 }
